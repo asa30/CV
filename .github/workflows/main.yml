@@ -22,14 +22,14 @@ jobs:
       - name: Check output
         run: ls
       - name: Change PDF output name
-        run: mv main.pdf Chandrashekhar_Resume.pdf
+        run: mv main.pdf AhmedSherif_Resume.pdf
       - name: Check output (after rename)
         run: ls
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: Chandrashekhar_Resume.pdf
+          files: AhmedSherif_Resume.pdf
       - name: Notify if CV was compiled successfully
         if: success()
         run: |
@@ -37,5 +37,5 @@ jobs:
             -H $"Title: CV ${{ github.ref_name }} published successfully" \
             -H "X-Tags: memo, CV, version-update, updated-link" \
             -H "Content-Type: text/plain" \
-            -d $'CV ${{ github.ref_name }} published successfully.\nYou can find the updated CV at https://github.com/cr2007/CV/releases/latest/download/Chandrashekhar_Resume.pdf\nStatus: ${{job.status}}' \
+            -d $'CV ${{ github.ref_name }} published successfully.\nYou can find the updated CV at https://github.com/asa30/CV/releases/latest/download/AhmedSherif_Resume.pdf\nStatus: ${{job.status}}' \
             ${{ vars.NTFY_GACTIONS_URL }}
